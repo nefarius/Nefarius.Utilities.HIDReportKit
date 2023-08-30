@@ -2,8 +2,6 @@
 
 using Nefarius.Utilities.HID.Util;
 
-using Vapour.Shared.Devices.HID.InputTypes.DualSense.In;
-
 namespace Nefarius.Utilities.HID.Devices.DualSense.In;
 
 [StructLayout(LayoutKind.Sequential, Pack = 1)]

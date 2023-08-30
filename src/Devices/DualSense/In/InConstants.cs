@@ -1,4 +1,4 @@
-﻿namespace Vapour.Shared.Devices.HID.InputTypes.DualSense.In;
+﻿namespace Nefarius.Utilities.HID.Devices.DualSense.In;
 
 public static class InConstants
 {

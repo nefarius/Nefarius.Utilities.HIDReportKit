@@ -1,4 +1,4 @@
-﻿namespace Vapour.Shared.Devices.HID.InputTypes.DualShock4.In;
+﻿namespace Nefarius.Utilities.HID.Devices.DualShock4.In;
 
 [Flags]
 public enum InputReportedConfig : ushort

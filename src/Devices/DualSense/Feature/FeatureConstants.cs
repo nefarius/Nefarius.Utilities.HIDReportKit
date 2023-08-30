@@ -1,4 +1,4 @@
-﻿namespace Vapour.Shared.Devices.HID.InputTypes.DualSense.Feature;
+﻿namespace Nefarius.Utilities.HID.Devices.DualSense.Feature;
 
 public static class FeatureConstants
 {

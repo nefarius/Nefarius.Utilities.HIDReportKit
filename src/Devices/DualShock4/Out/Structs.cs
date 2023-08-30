@@ -3,8 +3,6 @@ using System.Runtime.InteropServices;
 
 using Nefarius.Utilities.HID.Util;
 
-using Vapour.Shared.Devices.HID.InputTypes.DualShock4.Out;
-
 namespace Nefarius.Utilities.HID.Devices.DualShock4.Out;
 
 [StructLayout(LayoutKind.Sequential, Pack = 1)]

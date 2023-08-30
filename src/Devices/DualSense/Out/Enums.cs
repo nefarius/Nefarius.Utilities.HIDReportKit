@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace Vapour.Shared.Devices.HID.InputTypes.DualSense.Out;
+namespace Nefarius.Utilities.HID.Devices.DualSense.Out;
 
 [Flags]
 public enum Config1 : byte

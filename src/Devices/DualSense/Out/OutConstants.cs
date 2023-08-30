@@ -1,4 +1,4 @@
-﻿namespace Vapour.Shared.Devices.HID.InputTypes.DualSense.Out;
+﻿namespace Nefarius.Utilities.HID.Devices.DualSense.Out;
 
 public static class OutConstants
 {

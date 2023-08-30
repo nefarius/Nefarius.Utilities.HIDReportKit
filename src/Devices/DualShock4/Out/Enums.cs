@@ -1,4 +1,4 @@
-﻿namespace Vapour.Shared.Devices.HID.InputTypes.DualShock4.Out;
+﻿namespace Nefarius.Utilities.HID.Devices.DualShock4.Out;
 
 [Flags]
 public enum Config1 : byte

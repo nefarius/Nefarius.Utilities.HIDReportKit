@@ -1,4 +1,4 @@
-﻿namespace Vapour.Shared.Devices.HID.InputTypes.DualShock4.Feature;
+﻿namespace Nefarius.Utilities.HID.Devices.DualShock4.Feature;
 
 public static class FeatureConstants
 {
