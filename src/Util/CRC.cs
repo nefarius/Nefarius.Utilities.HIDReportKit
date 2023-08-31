@@ -509,9 +509,6 @@ public class CRC
     /// <summary>
     ///     Calculate CRC32 of a given data buffer.
     /// </summary>
-    /// <param name="data">The data to process.</param>
-    /// <param name="previousCrc32">An optional previous segment.</param>
-    /// <returns>The calculated CRC32.</returns>
     public static uint Crc32(byte[] data, uint previousCrc32 = 0)
     {
         return Crc32(data, 0, data.Length, previousCrc32);
@@ -520,14 +517,6 @@ public class CRC
     /// <summary>
     ///     Calculate CRC32 of a given data buffer.
     /// </summary>
-    /// <param name="data"></param>
-    /// <param name="offset"></param>
-    /// <param name="count"></param>
-    /// <param name="previousCrc32"></param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException"></exception>
-    /// <exception cref="ArgumentOutOfRangeException"></exception>
-    /// <exception cref="ArgumentException"></exception>
     public static uint Crc32(byte[] data, int offset, int count, uint previousCrc32 = 0)
     {
         if (data == null)
@@ -708,6 +697,9 @@ public class CRC
     }
 
 #if (MEMORY_SPAN)
+    /// <summary>
+    ///     Calculate CRC32 of a given data buffer.
+    /// </summary>
     public static uint Crc32(ReadOnlyMemory<byte> data, uint previousCrc32 = 0)
     {
         using MemoryHandle memHandle = data.Pin();
@@ -718,6 +710,9 @@ public class CRC
         }
     }
 
+    /// <summary>
+    ///     Calculate CRC32 of a given data buffer.
+    /// </summary>
     public static uint Crc32(ReadOnlySpan<byte> data, uint previousCrc32 = 0)
     {
         unsafe
