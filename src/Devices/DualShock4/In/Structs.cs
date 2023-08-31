@@ -1,5 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
+using Nefarius.Utilities.HID.Devices.Generic;
 using Nefarius.Utilities.HID.Util;
 
 namespace Nefarius.Utilities.HID.Devices.DualShock4.In;
@@ -20,7 +21,7 @@ public struct ExtendedInputReport
 }
 
 [StructLayout(LayoutKind.Explicit, Pack = 1)]
-public struct InputReportData
+public struct InputReportData : IRawInputReportData
 {
     [FieldOffset(InConstants.SticksAndTriggersOffSet)]
     public Sticks Sticks;
