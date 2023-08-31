@@ -8,6 +8,19 @@
 
 TBD
 
+## Motivation
+
+How many utilities are floating out there either reading or transforming data from gaming input devices? HID Report reading/parsing is a common task for those and doing this by hand is tedious and prone to errors. Why not have a nice small class library you could consume and be done with it? Look no further, weary traveler, we've got you covered! Having to write the same line of code twice isn't very fulfilling after all, you have better things to do, don't ya?    
+
+## Goals
+
+- **Compatibility**  
+  Still on .NET Framework 4.8? No problem, we will not force you to upgrade for the core feature set, but you'll miss out on some awesome stuff .NET 6 and higher has to offer 😉  
+- **Performance**  
+  We'll do our absolute best to avoid unnecessary copy actions or other expensive operations that could taint your report parsing experience 💪 Spans much?
+- **Plausibility**  
+  Juggling opaque byte arrays will sooner or later lead to errors, how about some validation helpers and plausibility checks before you send a report on its way? 👌
+
 ## Supported devices
 
 - Sony DualShock 4 (PS4 Controller)
@@ -20,3 +33,4 @@ This application benefits from these awesome projects ❤ (appearance in no spec
 - [Game Controller Collective Wiki - Sony DualSense](https://controllers.fandom.com/wiki/Sony_DualSense)
 - [Game Controller Collective Wiki - Sony DualShock 4](https://controllers.fandom.com/wiki/Sony_DualShock_4)
 - [Ryochan7/DS4Windows](https://github.com/Ryochan7/DS4Windows)
+- [CRC32 algorithm implementation by Yuri Babich, Stephan Brumme & Bulat Ziganshin](https://github.com/yubabich/FastCRC)
