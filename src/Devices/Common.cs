@@ -8,17 +8,50 @@ namespace Nefarius.Utilities.HID.Devices;
 [SuppressMessage("ReSharper", "UnusedMember.Global")]
 public enum DPadDirection
 {
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+    /// <summary>
+    ///     The resting (default, not engaged) position.
+    /// </summary>
     Default = 0x8,
+
+    /// <summary>
+    ///     The up and left direction.
+    /// </summary>
     NorthWest = 0x7,
+
+    /// <summary>
+    ///     The left direction.
+    /// </summary>
     West = 0x6,
+
+    /// <summary>
+    ///     The down and left direction.
+    /// </summary>
     SouthWest = 0x5,
+
+    /// <summary>
+    ///     The down direction.
+    /// </summary>
     South = 0x4,
+
+    /// <summary>
+    ///     The down and right direction.
+    /// </summary>
     SouthEast = 0x3,
+
+    /// <summary>
+    ///     The right direction.
+    /// </summary>
     East = 0x2,
+
+    /// <summary>
+    ///     The up and right direction.
+    /// </summary>
     NorthEast = 0x1,
+
+    /// <summary>
+    ///     The up direction.
+    /// </summary>
     North = 0x0
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }
 
 /// <summary>
