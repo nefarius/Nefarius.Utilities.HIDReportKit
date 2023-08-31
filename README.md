@@ -2,6 +2,12 @@
 
 # Nefarius.Utilities.HIDReportKit
 
+[![.NET](https://github.com/nefarius/Nefarius.Utilities.HIDReportKit/actions/workflows/build.yml/badge.svg)](https://github.com/nefarius/Nefarius.Utilities.HIDReportKit/actions/workflows/build.yml)
+
+## About
+
+TBD
+
 ## Sources & 3rd party credits
 
 This application benefits from these awesome projects ❤ (appearance in no special order):
