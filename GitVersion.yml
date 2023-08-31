@@ -1,8 +1,8 @@
 next-version: 0.1
 mode: ContinuousDeployment
 assembly-versioning-scheme: MajorMinorPatch
-assembly-file-versioning-format: '{Major}.{Minor}.{PreReleaseNumber}'
-assembly-informational-format: '{Major}.{Minor}.{PreReleaseNumber}'
+assembly-file-versioning-format: '{Major}.{Minor}.{Patch}'
+assembly-informational-format: '{Major}.{Minor}.{Patch}'
 branches:
   master:        
     regex: master    
