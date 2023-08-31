@@ -63,11 +63,13 @@ public enum AxisRangeType
     /// <summary>
     ///     Axis range is represented by a signed 16-bit integer. The value is between -32768 and 32767.
     /// </summary>
+    /// <remarks>The Xbox-series of controllers use this format via the XInput API.</remarks>
     Short,
 
     /// <summary>
     ///     Axis range is represented by an unsigned byte. The value is between 0 and 255.
     /// </summary>
+    /// <remarks>The PlayStation™ controllers use this format both wired and wireless.</remarks>
     Byte
 }
 
