@@ -1,4 +1,6 @@
-﻿namespace Nefarius.Utilities.HID.Devices.Generic;
+﻿using System;
+
+namespace Nefarius.Utilities.HID.Devices.Generic;
 
 /// <summary>
 ///     A minimal managed input report description.
@@ -69,12 +71,25 @@ public interface IInputReport
     ///     Gets the right face button.
     /// </summary>
     bool Right { get; }
-    
-    void Parse<TRaw>(TRaw report) where TRaw : IRawInputReportData;
 
+    /// <summary>
+    ///     Parses a provided input report into this instance.
+    /// </summary>
+    /// <param name="report">The raw report to parse.</param>
+    /// <typeparam name="TRaw">The raw report type.</typeparam>
+    void Parse<TRaw>(TRaw report) where TRaw : struct;
+
+    /// <summary>
+    ///     Parses a provided input report into this instance.
+    /// </summary>
+    /// <param name="report">The raw report to parse.</param>
     void Parse(byte[] report);
 
 #if NETCOREAPP3_0_OR_GREATER
+    /// <summary>
+    ///     Parses a provided input report into this instance.
+    /// </summary>
+    /// <param name="report">The raw report to parse.</param>
     void Parse(ReadOnlySpan<byte> report);
 #endif
 }

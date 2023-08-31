@@ -21,7 +21,7 @@ public struct ExtendedInputReport
 }
 
 [StructLayout(LayoutKind.Explicit, Pack = 1)]
-public struct InputReportData : IRawInputReportData
+public struct InputReportData
 {
     [FieldOffset(InConstants.SticksAndTriggersOffSet)]
     public SticksAndTriggers SticksAndTriggers;

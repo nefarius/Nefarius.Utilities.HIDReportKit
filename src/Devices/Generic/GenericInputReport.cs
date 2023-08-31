@@ -1,9 +1,11 @@
-﻿namespace Nefarius.Utilities.HID.Devices.Generic;
+﻿using System;
+
+namespace Nefarius.Utilities.HID.Devices.Generic;
 
 /// <summary>
 ///     Minimal implementation of a device-agnostic parsed input report.
 /// </summary>
-public sealed class GenericInputReport : IInputReport
+public class GenericInputReport : IInputReport
 {
     /// <inheritdoc />
     public byte ReportId { get; }
@@ -44,16 +46,19 @@ public sealed class GenericInputReport : IInputReport
     /// <inheritdoc />
     public bool Right { get; }
 
-    public void Parse<TRaw>(TRaw report) where TRaw : IRawInputReportData
+    /// <inheritdoc />
+    public void Parse<TRaw>(TRaw report) where TRaw : struct
     {
         throw new NotImplementedException();
     }
 
+    /// <inheritdoc />
     public void Parse(byte[] report)
     {
         throw new NotImplementedException();
     }
 
+    /// <inheritdoc />
     public void Parse(ReadOnlySpan<byte> report)
     {
         throw new NotImplementedException();
