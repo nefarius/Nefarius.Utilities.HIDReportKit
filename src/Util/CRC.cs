@@ -19,7 +19,7 @@ namespace Soft160.Data.Cryptography;
 [SuppressMessage("ReSharper", "UnusedMember.Global")]
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
-public class CRC
+public static class CRC
 {
     private static readonly uint[] Crc32Lookup =
     {
