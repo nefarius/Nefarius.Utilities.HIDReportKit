@@ -13,8 +13,8 @@ public enum Config1 : byte
     EnableVolumeSpeakerUpdate = 0x80,
 
     All = EnableRumbleUpdate | EnableLedUpdate | EnableLedBlink | EnableExtWrite |
-                            EnableVolumeLeftUpdate | EnableVolumeRightUpdate |
-                            EnableVolumeMicUpdate | EnableVolumeSpeakerUpdate
+          EnableVolumeLeftUpdate | EnableVolumeRightUpdate |
+          EnableVolumeMicUpdate | EnableVolumeSpeakerUpdate
 }
 
 [Flags]
