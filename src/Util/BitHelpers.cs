@@ -1,6 +1,6 @@
 ﻿namespace Nefarius.Utilities.HID.Util;
 
-internal static class BitHelpers
+public static class BitHelpers
 {
     private static readonly uint[] BitCountConversions =
     {
