@@ -535,14 +535,19 @@ public class CRC
             throw new ArgumentNullException(nameof(data));
         }
 
-        if (offset < 0 || count < 0)
+        if (offset < 0)
         {
-            throw new ArgumentOutOfRangeException();
+            throw new ArgumentOutOfRangeException(nameof(offset));
+        }
+        
+        if (count < 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(count));
         }
 
         if (offset + count > data.Length)
         {
-            throw new ArgumentException();
+            throw new ArgumentException("Offset outside of range of data buffer");
         }
 
         unsafe
@@ -705,13 +710,11 @@ public class CRC
 #if (MEMORY_SPAN)
     public static uint Crc32(ReadOnlyMemory<byte> data, uint previousCrc32 = 0)
     {
-        using (MemoryHandle memHandle = data.Pin())
+        using MemoryHandle memHandle = data.Pin();
+        unsafe
         {
-            unsafe
-            {
-                byte* dataPtr = (byte*)memHandle.Pointer;
-                return Crc32(dataPtr, data.Length, previousCrc32);
-            }
+            byte* dataPtr = (byte*)memHandle.Pointer;
+            return Crc32(dataPtr, data.Length, previousCrc32);
         }
     }
 
