@@ -1,11 +1,20 @@
-﻿namespace Nefarius.Utilities.HID.Util;
+﻿using System.Diagnostics.CodeAnalysis;
 
+namespace Nefarius.Utilities.HID.Util;
+
+/// <summary>
+///     Axis value conversion utilities.
+/// </summary>
+[SuppressMessage("ReSharper", "UnusedMember.Global")]
 public static class AxisScaling
 {
     private const float RecipInputPosResolution = 1 / 127f;
     private const float RecipInputNegResolution = 1 / 128f;
     private const int OutputResolution = 32767 - -32768;
     
+    /// <summary>
+    ///     Scales a signed 16-bit value to fit into the range 0 to 255 where 127 equals 0 (centered).
+    /// </summary>
     public static byte ScaleDown(short value, bool flip)
     {
         unchecked
@@ -20,6 +29,9 @@ public static class AxisScaling
         }
     }
 
+    /// <summary>
+    ///     Scales an unsigned 8-bit value up to the range between -32768 and 32767.
+    /// </summary>
     public static short ScaleUp(int value, bool flip)
     {
         unchecked
