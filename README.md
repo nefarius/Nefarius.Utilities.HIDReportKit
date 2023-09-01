@@ -6,10 +6,6 @@
 
 Managed types and utility classes for HID report parsing and transforming.
 
-## About
-
-TBD
-
 ## Motivation
 
 How many utilities are floating out there either reading or transforming data from gaming input devices? HID Report reading/parsing is a common task for those and doing this by hand is tedious and prone to errors. Why not have a nice small class library you could consume and be done with it? Look no further, weary traveler, we've got you covered!    
