@@ -14,4 +14,4 @@ if (dsDevices is null)
     throw new InvalidOperationException();
 }
 
-
+HidDevice ds = dsDevices.First();
