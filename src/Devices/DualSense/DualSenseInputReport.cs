@@ -34,8 +34,10 @@ public sealed class TrackPadTouch
 [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
 public class DualSenseInputReport : IParsableFor<InputReportData>
 {
+    internal DualSenseInputReport() { }
+
     private readonly GenericInputReport _generic = new();
-    
+
     /// <summary>
     ///     Gets the expected <see cref="AxisRangeType"/> of the thumb axes.
     /// </summary>

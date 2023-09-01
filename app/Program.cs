@@ -1,6 +1,7 @@
 ﻿using HidSharp;
 
 using Nefarius.Utilities.HID.Devices.DualSense;
+using Nefarius.Utilities.HID.Factories;
 
 DeviceList? list = DeviceList.Local;
 
@@ -26,7 +27,7 @@ if (stream is null)
 }
 
 Memory<byte> buffer = new byte[ds.GetMaxInputReportLength()];
-DualSenseInputReport report = new DualSenseInputReport();
+DualSenseInputReport report = InputReportFactory.CreateDualSenseInputReport();
 
 while (true)
 {
