@@ -13,23 +13,27 @@ public interface IParsableFor<TRaw> where TRaw : IRawInputReportStruct
     ///     Parses a provided input report into this instance.
     /// </summary>
     /// <param name="report">The raw report to parse.</param>
+    /// <remarks>Provide the start of the report WITHOUT the report ID.</remarks>
     void Parse(ref TRaw report);
 
     /// <summary>
     ///     Parses a provided input report into this instance.
     /// </summary>
     /// <param name="report">The raw report to parse.</param>
+    /// <remarks>Provide the start of the report WITHOUT the report ID.</remarks>
     void Parse(byte[] report);
     
     /// <summary>
     ///     Parses a provided input report into this instance.
     /// </summary>
     /// <param name="report">The raw report to parse.</param>
+    /// <remarks>Provide the start of the report WITHOUT the report ID.</remarks>
     void Parse(IEnumerable<byte> report);
     
     /// <summary>
     ///     Parses a provided input report into this instance.
     /// </summary>
     /// <param name="report">The raw report to parse.</param>
+    /// <remarks>Provide the start of the report WITHOUT the report ID.</remarks>
     void Parse(ReadOnlySpan<byte> report);
 }

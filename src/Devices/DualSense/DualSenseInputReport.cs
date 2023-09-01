@@ -242,7 +242,7 @@ public class DualSenseInputReport : ReportParserBase<InputReportData>
     }
 
     /// <inheritdoc />
-    public override void Parse(ref InputReportData report)
+    protected override void ParseInternal(ref InputReportData report)
     {
         SticksAndTriggers sticksAndTriggers = report.SticksAndTriggers;
         LeftThumbX = sticksAndTriggers.LeftStickX;
