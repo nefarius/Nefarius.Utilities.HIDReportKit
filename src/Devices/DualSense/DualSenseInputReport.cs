@@ -35,6 +35,11 @@ public sealed class TrackPadTouch
 public class DualSenseInputReport : IParsableFor<InputReportData>
 {
     private readonly GenericInputReport _generic = new();
+    
+    /// <summary>
+    ///     Gets the expected <see cref="AxisRangeType"/> of the thumb axes.
+    /// </summary>
+    public AxisRangeType AxisScaleInputType => AxisRangeType.Byte;
 
     /// <summary>
     ///     Gets the battery state.

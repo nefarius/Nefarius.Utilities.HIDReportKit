@@ -23,8 +23,8 @@ How many utilities are floating out there either reading or transforming data fr
 
 ## Supported devices
 
-- Sony DualShock 4 (PS4 Controller)
-- Sony DualSense (PS5 Controller)
+- Sony™ DualShock™ 4 (PS4 Controller)
+- Sony™ DualSense™ (PS5 Controller)
 
 ## Sources & 3rd party credits
 
