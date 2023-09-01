@@ -40,3 +40,4 @@ This application benefits from these awesome projects ❤ (appearance in no spec
 - [Ryochan7/DS4Windows](https://github.com/Ryochan7/DS4Windows)
 - [CRC32 algorithm implementation by Yuri Babich, Stephan Brumme & Bulat Ziganshin](https://github.com/yubabich/FastCRC)
 - [JoyShockLibrary](https://github.com/JibbSmart/JoyShockLibrary)
+- [Generator.Equals](https://github.com/diegofrata/Generator.Equals)

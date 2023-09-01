@@ -10,6 +10,8 @@
         <IsPackable>false</IsPackable>
     </PropertyGroup>
 
-
+    <ItemGroup>
+      <PackageReference Include="Generator.Equals" Version="3.0.0" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    </ItemGroup>
 
 </Project>

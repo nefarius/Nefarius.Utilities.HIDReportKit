@@ -3,6 +3,8 @@
 // ReSharper disable once RedundantUsingDirective
 using System.Runtime.InteropServices;
 
+using Generator.Equals;
+
 using Nefarius.Utilities.HID.Devices.DualSense.In;
 using Nefarius.Utilities.HID.Devices.Generic;
 using Nefarius.Utilities.HID.Util;
@@ -14,7 +16,8 @@ namespace Nefarius.Utilities.HID.Devices.DualSense;
 /// </summary>
 [SuppressMessage("ReSharper", "NotAccessedField.Global")]
 [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
-public sealed class TrackPadTouch
+[Equatable]
+public sealed partial class TrackPadTouch
 {
     public bool IsActive { get; internal set; }
 
@@ -32,7 +35,8 @@ public sealed class TrackPadTouch
 /// </summary>
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
-public class DualSenseInputReport : ReportParserBase<InputReportData>
+[Equatable]
+public partial class DualSenseInputReport : ReportParserBase<InputReportData>
 {
     internal DualSenseInputReport() { }
 
@@ -41,6 +45,7 @@ public class DualSenseInputReport : ReportParserBase<InputReportData>
     /// <summary>
     ///     Gets the expected <see cref="AxisRangeType"/> of the thumb axes.
     /// </summary>
+    [IgnoreEquality]
     public AxisRangeType AxisScaleInputType => AxisRangeType.Byte;
 
     /// <summary>
@@ -192,6 +197,7 @@ public class DualSenseInputReport : ReportParserBase<InputReportData>
     ///     Gets idle state. True whenever the state equals the resting, default values (e.g. the user doesn't interact with
     ///     the device).
     /// </summary>
+    [IgnoreEquality]
     public virtual bool IsIdle
     {
         get

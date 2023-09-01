@@ -2,17 +2,22 @@
 
 using System;
 
+using Generator.Equals;
+
 namespace Nefarius.Utilities.HID.Devices.Generic;
 
 /// <summary>
 ///     Minimal implementation of a device-agnostic parsed input report.
 /// </summary>
-internal sealed class GenericInputReport : IGenericInputReport
+[Equatable]
+internal sealed partial class GenericInputReport : IGenericInputReport
 {
     /// <inheritdoc />
+    [IgnoreEquality]
     public byte ReportId { get; }
 
     /// <inheritdoc />
+    [IgnoreEquality]
     public bool IsIdle { get; }
 
     /// <inheritdoc />
