@@ -52,7 +52,7 @@ public partial class DualSenseInputReport : ReportParserBase<InputReportData>
     ///     Gets the battery state (charging, charged, ...).
     /// </summary>
     public PowerState? BatteryState { get; protected set; }
-    
+
     /// <summary>
     ///     Gets the battery state. Only set if <see cref="BatteryState"/> is in the appropriate state.
     /// </summary>
@@ -306,5 +306,21 @@ public partial class DualSenseInputReport : ReportParserBase<InputReportData>
         Touch2 = finger2.IsActive;
         TouchIsOnLeftSide = touchData.IsTouchOnLeftSide;
         TouchIsOnRightSide = touchData.IsTouchOnRightSide;
+
+        PowerStateData powerData = report.PowerStateData;
+        BatteryState = powerData.BatteryState;
+        switch (BatteryState)
+        {
+            case PowerState.Discharging:
+            case PowerState.Charging:
+                BatteryPercentage = (byte)powerData.BatteryPercentage;
+                break;
+            case PowerState.Complete:
+                BatteryPercentage = 100;
+                break;
+            default:
+                BatteryPercentage = null;
+                break;
+        }
     }
 }

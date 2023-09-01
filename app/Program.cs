@@ -44,6 +44,8 @@ while (true)
     report.Parse(buffer[1..]);
 #endif
 
+    Console.WriteLine($"Battery state: {report.BatteryState}, % : {report.BatteryPercentage}");
+    
     if (report.Cross)
     {
         Console.WriteLine("Cross pressed");

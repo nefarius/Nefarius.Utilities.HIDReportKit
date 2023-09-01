@@ -29,6 +29,8 @@ public struct InputReportData : IRawInputReportStruct
     public Buttons Buttons;
     [FieldOffset(InConstants.TouchDataOffset)]
     public TouchData TouchData;
+    [FieldOffset(InConstants.PowerStateOffset)]
+    public PowerStateData PowerStateData;
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -84,4 +86,14 @@ public readonly struct TouchFingerData
     public bool IsActive => _data.GetBitsAsByte(7, 1) == 0;
     public short FingerX => _data.GetBitsAsShort(8, 12);
     public short FingerY => _data.GetBitsAsShort(20, 12);
+}
+
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public readonly struct PowerStateData
+{
+    private readonly byte _data;
+
+    public PowerState BatteryState => (PowerState)((_data & 0xf0) >> 4);
+    
+    public int BatteryPercentage => Math.Min((_data & 0x0f) * 10, 100);
 }
