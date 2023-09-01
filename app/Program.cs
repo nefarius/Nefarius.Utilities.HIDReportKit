@@ -26,13 +26,23 @@ if (stream is null)
     throw new InvalidOperationException();
 }
 
-Span<byte> buffer = new byte[ds.GetMaxInputReportLength()];
 DualSenseInputReport report = InputReportFactory.CreateDualSenseInputReport();
+
+#if NETFRAMEWORK
+byte[] buffer = new byte[ds.GetMaxInputReportLength()];
+#else
+Span<byte> buffer = new byte[ds.GetMaxInputReportLength()];
+#endif
 
 while (true)
 {
+#if NETFRAMEWORK
+    _ = stream.Read(buffer);
+    report.Parse(buffer.Skip(1).ToArray());
+#else
     _ = stream.Read(buffer);
     report.Parse(buffer[1..]);
+#endif
 
     if (report.Cross)
     {
