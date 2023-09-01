@@ -7,7 +7,7 @@ using Nefarius.Utilities.HID.Util;
 namespace Nefarius.Utilities.HID.Devices.Generic;
 
 /// <summary>
-///     Base class derived from <see cref="IParsableFor{TRaw}"/>.
+///     Base class implementing <see cref="IParsableFor{TRaw}"/>.
 /// </summary>
 /// <typeparam name="TRaw">An implementation of <see cref="IRawInputReportStruct"/>.</typeparam>
 public abstract class ReportParserBase<TRaw> : IParsableFor<TRaw> where TRaw : struct, IRawInputReportStruct
