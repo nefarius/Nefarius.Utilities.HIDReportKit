@@ -26,6 +26,10 @@ How many utilities are floating out there either reading or transforming data fr
 - Sony™ DualShock™ 4 (PS4 Controller)
 - Sony™ DualSense™ (PS5 Controller)
 
+## NuGet
+
+Until the library has reached level of maturity it won't be published on nuget.org, you can find [development builds on my private feed though](https://baget.nefarius.at/packages/nefarius.utilities.hidreportkit/) 👌 Use at your own risk, no support provided whatsoever.
+
 ## Sources & 3rd party credits
 
 This application benefits from these awesome projects ❤ (appearance in no special order):
