@@ -13,4 +13,8 @@
       <ProjectReference Include="..\src\Nefarius.Utilities.HIDReportKit.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="HidSharp" Version="2.1.0" />
+    </ItemGroup>
+
 </Project>
