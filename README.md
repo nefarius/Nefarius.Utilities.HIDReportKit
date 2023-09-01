@@ -10,7 +10,7 @@ TBD
 
 ## Motivation
 
-How many utilities are floating out there either reading or transforming data from gaming input devices? HID Report reading/parsing is a common task for those and doing this by hand is tedious and prone to errors. Why not have a nice small class library you could consume and be done with it? Look no further, weary traveler, we've got you covered! Having to write the same line of code twice isn't very fulfilling after all, you have better things to do, don't ya?    
+How many utilities are floating out there either reading or transforming data from gaming input devices? HID Report reading/parsing is a common task for those and doing this by hand is tedious and prone to errors. Why not have a nice small class library you could consume and be done with it? Look no further, weary traveler, we've got you covered!    
 
 ## Goals
 
@@ -34,3 +34,4 @@ This application benefits from these awesome projects ❤ (appearance in no spec
 - [Game Controller Collective Wiki - Sony DualShock 4](https://controllers.fandom.com/wiki/Sony_DualShock_4)
 - [Ryochan7/DS4Windows](https://github.com/Ryochan7/DS4Windows)
 - [CRC32 algorithm implementation by Yuri Babich, Stephan Brumme & Bulat Ziganshin](https://github.com/yubabich/FastCRC)
+- [JoyShockLibrary](https://github.com/JibbSmart/JoyShockLibrary)
