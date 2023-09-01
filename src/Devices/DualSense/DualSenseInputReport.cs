@@ -319,11 +319,5 @@ public class DualSenseInputReport : IParsableFor<InputReportData>
         InputReportData data = report.AsStruct<InputReportData>();
         Parse(ref data);
     }
-
-    /// <inheritdoc />
-    public void Parse(Memory<byte> report)
-    {
-        Parse(report.Span);
-    }
 #endif
 }

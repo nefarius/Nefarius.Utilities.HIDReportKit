@@ -27,11 +27,5 @@ public interface IParsableFor<TRaw> where TRaw : IRawInputReportStruct
     /// </summary>
     /// <param name="report">The raw report to parse.</param>
     void Parse(ReadOnlySpan<byte> report);
-
-    /// <summary>
-    ///     Parses a provided input report into this instance.
-    /// </summary>
-    /// <param name="report">The raw report to parse.</param>
-    void Parse(Memory<byte> report);
 #endif
 }
