@@ -1,11 +1,12 @@
-﻿using System;
+﻿// ReSharper disable once RedundantUsingDirective
+using System;
 
 namespace Nefarius.Utilities.HID.Devices.Generic;
 
 /// <summary>
 ///     A minimal managed input report description.
 /// </summary>
-public interface IInputReport
+public interface IGenericInputReport
 {
     /// <summary>
     ///     Gets the report ID.

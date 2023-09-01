@@ -1,6 +1,5 @@
 ﻿using System.Runtime.InteropServices;
 
-using Nefarius.Utilities.HID.Devices.Generic;
 using Nefarius.Utilities.HID.Util;
 
 namespace Nefarius.Utilities.HID.Devices.DualShock4.In;

@@ -15,3 +15,17 @@ if (dsDevices is null)
 }
 
 HidDevice ds = dsDevices.First();
+
+HidStream? stream = ds.Open();
+
+if (stream is null)
+{
+    throw new InvalidOperationException();
+}
+
+var buffer = new byte[ds.GetMaxInputReportLength()];
+
+while (true)
+{
+    stream.Read(buffer);
+}

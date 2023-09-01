@@ -1,11 +1,12 @@
-﻿using System;
+﻿// ReSharper disable once RedundantUsingDirective
+using System;
 
 namespace Nefarius.Utilities.HID.Devices.Generic;
 
 /// <summary>
 ///     Minimal implementation of a device-agnostic parsed input report.
 /// </summary>
-public class GenericInputReport : IInputReport
+public class GenericGenericInputReport : IGenericInputReport
 {
     /// <inheritdoc />
     public byte ReportId { get; }
