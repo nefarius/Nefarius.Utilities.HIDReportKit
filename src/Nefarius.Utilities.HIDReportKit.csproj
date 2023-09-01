@@ -1,15 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <!-- <TargetFramework>net7.0</TargetFramework> -->
-        <TargetFrameworks>netstandard2.0;net6;net7</TargetFrameworks>
+        <TargetFrameworks>netstandard2.0;net6.0;net7.0</TargetFrameworks>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <Version>1.0.0</Version>
-        <RepositoryUrl>https://github.com/nefarius/Nefarius.NuGet.Template</RepositoryUrl>
-        <PackageProjectUrl>https://github.com/nefarius/Nefarius.NuGet.Template</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/nefarius/Nefarius.Utilities.HIDReportKit</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/nefarius/Nefarius.Utilities.HIDReportKit</PackageProjectUrl>
         <Description>Summary. README takes priority over this but nice to have.</Description>
         <RootNamespace>Nefarius.Utilities.HID</RootNamespace>
     </PropertyGroup>
