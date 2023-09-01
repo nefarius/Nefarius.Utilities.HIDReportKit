@@ -1,5 +1,7 @@
 ﻿using HidSharp;
 
+using Nefarius.Utilities.HID.Devices.DualSense;
+
 DeviceList? list = DeviceList.Local;
 
 if (list is null)
@@ -23,9 +25,16 @@ if (stream is null)
     throw new InvalidOperationException();
 }
 
-var buffer = new byte[ds.GetMaxInputReportLength()];
+byte[] buffer = new byte[ds.GetMaxInputReportLength()];
+DualSenseInputReport report = new DualSenseInputReport();
 
 while (true)
 {
     stream.Read(buffer);
+    report.Parse(buffer.Skip(1).ToArray());
+
+    if (report.Cross)
+    {
+        Console.WriteLine("Cross pressed");
+    }
 }

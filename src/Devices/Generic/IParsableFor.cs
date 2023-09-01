@@ -3,14 +3,13 @@
 /// <summary>
 ///     Marks a type as supporting report parsing.
 /// </summary>
-public interface IParsable
+public interface IParsableFor<TRaw> where TRaw : IRawInputReportStruct
 {
     /// <summary>
     ///     Parses a provided input report into this instance.
     /// </summary>
     /// <param name="report">The raw report to parse.</param>
-    /// <typeparam name="TRaw">The raw report type.</typeparam>
-    void Parse<TRaw>(ref TRaw report) where TRaw : struct;
+    void Parse(ref TRaw report);
 
     /// <summary>
     ///     Parses a provided input report into this instance.

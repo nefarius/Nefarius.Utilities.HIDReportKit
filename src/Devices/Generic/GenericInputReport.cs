@@ -15,53 +15,35 @@ public class GenericInputReport : IGenericInputReport
     public bool IsIdle { get; }
 
     /// <inheritdoc />
-    public bool L1 { get; }
+    public bool L1 { get;  set;}
     
     /// <inheritdoc />
-    public bool R1 { get; }
+    public bool R1 { get;  set;}
     
     /// <inheritdoc />
-    public int L2 { get; }
+    public int L2 { get; set; }
     
     /// <inheritdoc />
-    public int R2 { get; }
+    public int R2 { get; set; }
 
     /// <inheritdoc />
-    public bool L3 { get; }
+    public bool L3 { get;  set;}
     
     /// <inheritdoc />
-    public bool R3 { get; }
+    public bool R3 { get;  set;}
 
     /// <inheritdoc />
-    public DPadDirection DPad { get; }
+    public DPadDirection DPad { get;  set;}
 
     /// <inheritdoc />
-    public bool Top { get; }
+    public bool Top { get;  set;}
     
     /// <inheritdoc />
-    public bool Bottom { get; }
+    public bool Bottom { get;  set;}
     
     /// <inheritdoc />
-    public bool Left { get; }
+    public bool Left { get;  set;}
     
     /// <inheritdoc />
-    public bool Right { get; }
-
-    /// <inheritdoc />
-    public void Parse<TRaw>(ref TRaw report) where TRaw : struct
-    {
-        throw new NotImplementedException();
-    }
-
-    /// <inheritdoc />
-    public void Parse(byte[] report)
-    {
-        throw new NotImplementedException();
-    }
-
-    /// <inheritdoc />
-    public void Parse(ReadOnlySpan<byte> report)
-    {
-        throw new NotImplementedException();
-    }
+    public bool Right { get; set; }
 }

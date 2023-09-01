@@ -1,6 +1,9 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Runtime.InteropServices;
 
+using Nefarius.Utilities.HID.Devices.DualSense.In;
 using Nefarius.Utilities.HID.Devices.Generic;
+using Nefarius.Utilities.HID.Util;
 
 namespace Nefarius.Utilities.HID.Devices.DualSense;
 
@@ -23,9 +26,9 @@ public struct TrackPadTouch
 /// </summary>
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
-public class DualSenseInputReport : IParsable
+public class DualSenseInputReport : IParsableFor<InputReportData>
 {
-    private readonly IGenericInputReport _generic = new GenericInputReport();
+    private readonly GenericInputReport _generic = new();
 
     /// <summary>
     ///     Gets the battery state.
@@ -215,20 +218,89 @@ public class DualSenseInputReport : IParsable
         }
     }
 
-    public void Parse<TRaw>(ref TRaw report) where TRaw : struct
+    /// <inheritdoc />
+    public void Parse(ref InputReportData report)
     {
-        throw new NotImplementedException();
+        SticksAndTriggers sticksAndTriggers = report.SticksAndTriggers;
+        LeftThumbX = sticksAndTriggers.LeftStickX;
+        LeftThumbY = sticksAndTriggers.LeftStickY;
+        RightThumbX = sticksAndTriggers.RightStickX;
+        RightThumbY = sticksAndTriggers.RightStickY;
+        LeftTrigger = sticksAndTriggers.TriggerLeft;
+        RightTrigger = sticksAndTriggers.TriggerRight;
+
+        DualSenseButtons1 buttons1 = report.Buttons.Buttons1;
+        _generic.Top = buttons1.HasFlag(DualSenseButtons1.Triangle);
+        _generic.Right = buttons1.HasFlag(DualSenseButtons1.Circle);
+        _generic.Bottom = buttons1.HasFlag(DualSenseButtons1.Cross);
+        _generic.Left = buttons1.HasFlag(DualSenseButtons1.Square);
+
+        _generic.DPad = report.Buttons.DPad;
+
+        DualSenseButtons2 buttons2 = report.Buttons.Buttons2;
+        _generic.L3 = buttons2.HasFlag(DualSenseButtons2.L3);
+        _generic.R3 = buttons2.HasFlag(DualSenseButtons2.R3);
+        Options = buttons2.HasFlag(DualSenseButtons2.Options);
+        Share = buttons2.HasFlag(DualSenseButtons2.Create);
+        RightTriggerButton = buttons2.HasFlag(DualSenseButtons2.R2);
+        LeftTriggerButton = buttons2.HasFlag(DualSenseButtons2.L2);
+        _generic.R1 = buttons2.HasFlag(DualSenseButtons2.R1);
+        _generic.L1 = buttons2.HasFlag(DualSenseButtons2.L1);
+
+        DualSenseButtons3 buttons3 = report.Buttons.Buttons3;
+        PS = buttons3.HasFlag(DualSenseButtons3.Home);
+        TouchClick = buttons3.HasFlag(DualSenseButtons3.Pad);
+        Mute = buttons3.HasFlag(DualSenseButtons3.Mute);
+
+        TouchFingerData finger1 = report.TouchData.Finger1;
+        TrackPadTouch1 = new TrackPadTouch
+        {
+            RawTrackingNum = finger1.RawTrackingNumber,
+            Id = finger1.Index,
+            IsActive = finger1.IsActive,
+            X = finger1.FingerX,
+            Y = finger1.FingerY
+        };
+
+        TouchFingerData finger2 = report.TouchData.Finger2;
+        TrackPadTouch2 = new TrackPadTouch
+        {
+            RawTrackingNum = finger2.RawTrackingNumber,
+            Id = finger2.Index,
+            IsActive = finger2.IsActive,
+            X = finger2.FingerX,
+            Y = finger2.FingerY
+        };
+
+        TouchData touchData = report.TouchData;
+        TouchPacketCounter = touchData.Timestamp;
+        Touch1 = finger1.IsActive;
+        Touch2 = finger2.IsActive;
+        TouchIsOnLeftSide = touchData.IsTouchOnLeftSide;
+        TouchIsOnRightSide = touchData.IsTouchOnRightSide;
     }
 
+    /// <inheritdoc />
     public void Parse(byte[] report)
     {
-        throw new NotImplementedException();
+#if NETCOREAPP3_0_OR_GREATER
+        Parse((ReadOnlySpan<byte>)report);
+#else
+        // fallback for older frameworks
+        GCHandle handle = GCHandle.Alloc(report, GCHandleType.Pinned);
+        InputReportData data =
+            (InputReportData)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(InputReportData));
+        Parse(ref data);
+        handle.Free();
+#endif
     }
 
 #if NETCOREAPP3_0_OR_GREATER
+    /// <inheritdoc />
     public void Parse(ReadOnlySpan<byte> report)
     {
-        throw new NotImplementedException();
+        InputReportData data = report.AsStruct<InputReportData>();
+        Parse(ref data);
     }
 #endif
 }

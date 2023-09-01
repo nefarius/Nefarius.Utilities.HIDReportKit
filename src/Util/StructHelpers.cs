@@ -31,7 +31,7 @@ public static class StructHelpers
     ///     Supported only for platforms that support misaligned memory access or when the memory block is aligned by other
     ///     means.
     /// </remarks>
-    public static T ToStruct<T>(this ReadOnlySpan<byte> data)
+    public static T AsStruct<T>(this ReadOnlySpan<byte> data)
         where T : struct
     {
         return MemoryMarshal.AsRef<T>(data);
@@ -45,10 +45,10 @@ public static class StructHelpers
     ///     Supported only for platforms that support misaligned memory access or when the memory block is aligned by other
     ///     means.
     /// </remarks>
-    public static T ToStruct<T>(this byte[] data)
+    public static T AsStruct<T>(this byte[] data)
         where T : struct
     {
-        return ToStruct<T>((ReadOnlySpan<byte>)data);
+        return AsStruct<T>((ReadOnlySpan<byte>)data);
     }
 #endif
 }
