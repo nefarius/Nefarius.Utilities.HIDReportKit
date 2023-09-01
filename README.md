@@ -4,6 +4,8 @@
 
 [![.NET](https://github.com/nefarius/Nefarius.Utilities.HIDReportKit/actions/workflows/build.yml/badge.svg)](https://github.com/nefarius/Nefarius.Utilities.HIDReportKit/actions/workflows/build.yml)
 
+Managed types and utility classes for HID report parsing and transforming.
+
 ## About
 
 TBD
