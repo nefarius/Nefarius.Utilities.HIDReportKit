@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+
+// ReSharper disable once RedundantUsingDirective
 using System.Runtime.InteropServices;
 
 using Nefarius.Utilities.HID.Devices.DualSense.In;
@@ -7,18 +9,22 @@ using Nefarius.Utilities.HID.Util;
 
 namespace Nefarius.Utilities.HID.Devices.DualSense;
 
+/// <summary>
+///     Touchpad state details.
+/// </summary>
 [SuppressMessage("ReSharper", "NotAccessedField.Global")]
-public struct TrackPadTouch
+[SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
+public sealed class TrackPadTouch
 {
-    public bool IsActive;
+    public bool IsActive { get; internal set; }
 
-    public byte Id;
+    public byte Id { get; internal set; }
 
-    public short X;
+    public short X { get; internal set; }
 
-    public short Y;
+    public short Y { get; internal set; }
 
-    public byte RawTrackingNum;
+    public byte RawTrackingNum { get; internal set; }
 }
 
 /// <summary>
@@ -135,9 +141,9 @@ public class DualSenseInputReport : IParsableFor<InputReportData>
     /// </summary>
     public short RightThumbY { get; set; } = 128;
 
-    public TrackPadTouch TrackPadTouch1 { get; protected set; }
+    public TrackPadTouch TrackPadTouch1 { get; } = new();
 
-    public TrackPadTouch TrackPadTouch2 { get; protected set; }
+    public TrackPadTouch TrackPadTouch2 { get; } = new();
 
     public byte TouchPacketCounter { get; protected set; }
 
@@ -157,8 +163,14 @@ public class DualSenseInputReport : IParsableFor<InputReportData>
     /// </summary>
     public bool Touch2 { get; protected set; }
 
+    /// <summary>
+    ///     Touch is registered in the left half of the pad.
+    /// </summary>
     public bool TouchIsOnLeftSide { get; protected set; }
 
+    /// <summary>
+    ///     Touch is registered in the right half of the pad.
+    /// </summary>
     public bool TouchIsOnRightSide { get; protected set; }
 
     /// <summary>
@@ -167,7 +179,8 @@ public class DualSenseInputReport : IParsableFor<InputReportData>
     public bool TouchClick { get; protected set; }
 
     /// <summary>
-    ///     Gets idle state.
+    ///     Gets idle state. True whenever the state equals the resting, default values (e.g. the user doesn't interact with
+    ///     the device).
     /// </summary>
     public virtual bool IsIdle
     {
@@ -253,24 +266,18 @@ public class DualSenseInputReport : IParsableFor<InputReportData>
         Mute = buttons3.HasFlag(DualSenseButtons3.Mute);
 
         TouchFingerData finger1 = report.TouchData.Finger1;
-        TrackPadTouch1 = new TrackPadTouch
-        {
-            RawTrackingNum = finger1.RawTrackingNumber,
-            Id = finger1.Index,
-            IsActive = finger1.IsActive,
-            X = finger1.FingerX,
-            Y = finger1.FingerY
-        };
+        TrackPadTouch1.RawTrackingNum = finger1.RawTrackingNumber;
+        TrackPadTouch1.Id = finger1.Index;
+        TrackPadTouch1.IsActive = finger1.IsActive;
+        TrackPadTouch1.X = finger1.FingerX;
+        TrackPadTouch1.Y = finger1.FingerY;
 
         TouchFingerData finger2 = report.TouchData.Finger2;
-        TrackPadTouch2 = new TrackPadTouch
-        {
-            RawTrackingNum = finger2.RawTrackingNumber,
-            Id = finger2.Index,
-            IsActive = finger2.IsActive,
-            X = finger2.FingerX,
-            Y = finger2.FingerY
-        };
+        TrackPadTouch2.RawTrackingNum = finger2.RawTrackingNumber;
+        TrackPadTouch2.Id = finger2.Index;
+        TrackPadTouch2.IsActive = finger2.IsActive;
+        TrackPadTouch2.X = finger2.FingerX;
+        TrackPadTouch2.Y = finger2.FingerY;
 
         TouchData touchData = report.TouchData;
         TouchPacketCounter = touchData.Timestamp;
