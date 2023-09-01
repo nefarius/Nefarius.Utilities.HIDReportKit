@@ -48,7 +48,7 @@ public class GenericInputReport : IGenericInputReport
     public bool Right { get; }
 
     /// <inheritdoc />
-    public void Parse<TRaw>(TRaw report) where TRaw : struct
+    public void Parse<TRaw>(ref TRaw report) where TRaw : struct
     {
         throw new NotImplementedException();
     }

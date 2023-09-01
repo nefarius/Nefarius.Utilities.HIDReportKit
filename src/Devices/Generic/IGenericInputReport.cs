@@ -59,7 +59,7 @@ public interface IGenericInputReport
     bool Top { get; }
 
     /// <summary>
-    ///     Gets the bottm face button.
+    ///     Gets the bottom face button.
     /// </summary>
     bool Bottom { get; }
 
@@ -72,25 +72,4 @@ public interface IGenericInputReport
     ///     Gets the right face button.
     /// </summary>
     bool Right { get; }
-
-    /// <summary>
-    ///     Parses a provided input report into this instance.
-    /// </summary>
-    /// <param name="report">The raw report to parse.</param>
-    /// <typeparam name="TRaw">The raw report type.</typeparam>
-    void Parse<TRaw>(TRaw report) where TRaw : struct;
-
-    /// <summary>
-    ///     Parses a provided input report into this instance.
-    /// </summary>
-    /// <param name="report">The raw report to parse.</param>
-    void Parse(byte[] report);
-
-#if NETCOREAPP3_0_OR_GREATER
-    /// <summary>
-    ///     Parses a provided input report into this instance.
-    /// </summary>
-    /// <param name="report">The raw report to parse.</param>
-    void Parse(ReadOnlySpan<byte> report);
-#endif
 }
