@@ -312,12 +312,15 @@ public class DualSenseInputReport : IParsableFor<InputReportData>
 #endif
     }
 
-#if NETCOREAPP3_0_OR_GREATER
     /// <inheritdoc />
     public void Parse(ReadOnlySpan<byte> report)
     {
+#if NETCOREAPP3_0_OR_GREATER
         InputReportData data = report.AsStruct<InputReportData>();
         Parse(ref data);
-    }
+#else
+        InputReportData data = MemoryMarshal.Read<InputReportData>(report);
+        Parse(ref data);
 #endif
+    }
 }

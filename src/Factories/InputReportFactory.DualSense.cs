@@ -26,7 +26,6 @@ public static partial class InputReportFactory
         return managed;
     }
 
-#if NETCOREAPP3_0_OR_GREATER
     /// <summary>
     ///     Creates a new y<see cref="DualSenseInputReport" /> and parses the provided raw report.
     /// </summary>
@@ -37,5 +36,4 @@ public static partial class InputReportFactory
 
         return managed;
     }
-#endif
 }
