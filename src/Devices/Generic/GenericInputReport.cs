@@ -6,7 +6,7 @@ namespace Nefarius.Utilities.HID.Devices.Generic;
 /// <summary>
 ///     Minimal implementation of a device-agnostic parsed input report.
 /// </summary>
-public class GenericGenericInputReport : IGenericInputReport
+public class GenericInputReport : IGenericInputReport
 {
     /// <inheritdoc />
     public byte ReportId { get; }
