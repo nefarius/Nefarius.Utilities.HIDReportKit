@@ -32,7 +32,7 @@ public sealed class TrackPadTouch
 /// </summary>
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
-public class DualSenseInputReport : IParsableFor<InputReportData>
+public class DualSenseInputReport : ReportParserBase<InputReportData>
 {
     internal DualSenseInputReport() { }
 
@@ -242,7 +242,7 @@ public class DualSenseInputReport : IParsableFor<InputReportData>
     }
 
     /// <inheritdoc />
-    public void Parse(ref InputReportData report)
+    public override void Parse(ref InputReportData report)
     {
         SticksAndTriggers sticksAndTriggers = report.SticksAndTriggers;
         LeftThumbX = sticksAndTriggers.LeftStickX;
@@ -295,32 +295,5 @@ public class DualSenseInputReport : IParsableFor<InputReportData>
         Touch2 = finger2.IsActive;
         TouchIsOnLeftSide = touchData.IsTouchOnLeftSide;
         TouchIsOnRightSide = touchData.IsTouchOnRightSide;
-    }
-
-    /// <inheritdoc />
-    public void Parse(byte[] report)
-    {
-#if NETCOREAPP3_0_OR_GREATER
-        Parse((ReadOnlySpan<byte>)report);
-#else
-        // fallback for older frameworks
-        GCHandle handle = GCHandle.Alloc(report, GCHandleType.Pinned);
-        InputReportData data =
-            (InputReportData)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(InputReportData));
-        Parse(ref data);
-        handle.Free();
-#endif
-    }
-
-    /// <inheritdoc />
-    public void Parse(ReadOnlySpan<byte> report)
-    {
-#if NETCOREAPP3_0_OR_GREATER
-        InputReportData data = report.AsStruct<InputReportData>();
-        Parse(ref data);
-#else
-        InputReportData data = MemoryMarshal.Read<InputReportData>(report);
-        Parse(ref data);
-#endif
     }
 }

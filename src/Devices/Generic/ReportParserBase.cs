@@ -1,4 +1,5 @@
 ﻿// ReSharper disable once RedundantUsingDirective
+
 using System.Runtime.InteropServices;
 
 using Nefarius.Utilities.HID.Util;
@@ -11,9 +12,11 @@ namespace Nefarius.Utilities.HID.Devices.Generic;
 /// <typeparam name="TRaw"></typeparam>
 public abstract class ReportParserBase<TRaw> : IParsableFor<TRaw> where TRaw : struct, IRawInputReportStruct
 {
+    internal ReportParserBase() { }
+
     /// <inheritdoc />
     public abstract void Parse(ref TRaw report);
-    
+
     /// <inheritdoc />
     public void Parse(byte[] report)
     {
