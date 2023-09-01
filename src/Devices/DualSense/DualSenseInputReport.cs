@@ -156,6 +156,9 @@ public class DualSenseInputReport : IParsableFor<InputReportData>
 
     public bool TouchTwoFingersActive => Touch1 && Touch2;
 
+    /// <summary>
+    ///     Gets the microphone mute button state.
+    /// </summary>
     public bool Mute { get; protected set; }
 
     /// <summary>
