@@ -30,6 +30,7 @@ How many utilities are floating out there either reading or transforming data fr
 
 This application benefits from these awesome projects ❤ (appearance in no special order):
 
+- [DS4Windows/Vapour Input](https://github.com/CircumSpector/DS4Windows)
 - [Game Controller Collective Wiki - Sony DualSense](https://controllers.fandom.com/wiki/Sony_DualSense)
 - [Game Controller Collective Wiki - Sony DualShock 4](https://controllers.fandom.com/wiki/Sony_DualShock_4)
 - [Ryochan7/DS4Windows](https://github.com/Ryochan7/DS4Windows)
