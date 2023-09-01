@@ -1,8 +1,12 @@
-﻿namespace Nefarius.Utilities.HID.Devices.Generic;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace Nefarius.Utilities.HID.Devices.Generic;
 
 /// <summary>
 ///     Marks a type as supporting report parsing.
 /// </summary>
+[SuppressMessage("ReSharper", "UnusedMemberInSuper.Global")]
+[SuppressMessage("ReSharper", "UnusedMember.Global")]
 public interface IParsableFor<TRaw> where TRaw : IRawInputReportStruct
 {
     /// <summary>
@@ -23,5 +27,11 @@ public interface IParsableFor<TRaw> where TRaw : IRawInputReportStruct
     /// </summary>
     /// <param name="report">The raw report to parse.</param>
     void Parse(ReadOnlySpan<byte> report);
+
+    /// <summary>
+    ///     Parses a provided input report into this instance.
+    /// </summary>
+    /// <param name="report">The raw report to parse.</param>
+    void Parse(Memory<byte> report);
 #endif
 }

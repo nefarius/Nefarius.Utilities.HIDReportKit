@@ -25,13 +25,13 @@ if (stream is null)
     throw new InvalidOperationException();
 }
 
-byte[] buffer = new byte[ds.GetMaxInputReportLength()];
+Memory<byte> buffer = new byte[ds.GetMaxInputReportLength()];
 DualSenseInputReport report = new DualSenseInputReport();
 
 while (true)
 {
-    stream.Read(buffer);
-    report.Parse(buffer.Skip(1).ToArray());
+    stream.Read(buffer.Span);
+    report.Parse(buffer[1..]);
 
     if (report.Cross)
     {
