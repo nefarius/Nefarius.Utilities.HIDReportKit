@@ -16,18 +16,7 @@ public abstract class ReportParserBase<TRaw> : IParsableFor<TRaw> where TRaw : s
     internal ReportParserBase() { }
 
     /// <inheritdoc />
-    public void Parse(ref TRaw report)
-    {
-        int reportSize = Marshal.SizeOf(report);
-
-        if (Unsafe.SizeOf<TRaw>() != reportSize)
-        {
-            throw new ArgumentOutOfRangeException(nameof(report),
-                $"Unexpected report size of {reportSize} bytes received.");
-        }
-
-        ParseInternal(ref report);
-    }
+    public abstract void Parse(ref TRaw report);
 
     /// <inheritdoc />
     public void Parse(byte[] report)
@@ -52,9 +41,4 @@ public abstract class ReportParserBase<TRaw> : IParsableFor<TRaw> where TRaw : s
         Parse(ref data);
 #endif
     }
-
-    /// <summary>
-    ///     Report parsing logic implemented by derived class.
-    /// </summary>
-    protected abstract void ParseInternal(ref TRaw report);
 }

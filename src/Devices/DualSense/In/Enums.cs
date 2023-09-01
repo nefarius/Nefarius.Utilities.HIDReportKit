@@ -34,3 +34,13 @@ public enum DualSenseButtons3 : byte
     RPaddle = 0x40,
     Unknown = 0x80
 }
+
+public enum PowerState : byte
+{
+    Discharging = 0x0,
+    Charging = 0x1,
+    Complete = 0x2,
+    AbnormalVoltage = 0xa,
+    AbnormalTemperture = 0xb,
+    ChargingError = 0xf
+}

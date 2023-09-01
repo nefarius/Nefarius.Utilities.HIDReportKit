@@ -49,9 +49,14 @@ public partial class DualSenseInputReport : ReportParserBase<InputReportData>
     public AxisRangeType AxisScaleInputType => AxisRangeType.Byte;
 
     /// <summary>
-    ///     Gets the battery state.
+    ///     Gets the battery state (charging, charged, ...).
     /// </summary>
-    public byte? Battery { get; protected set; }
+    public PowerState? BatteryState { get; protected set; }
+    
+    /// <summary>
+    ///     Gets the battery state. Only set if <see cref="BatteryState"/> is in the appropriate state.
+    /// </summary>
+    public byte? BatteryPercentage { get; protected set; }
 
     /// <summary>
     ///     Gets the D-Pad state.
@@ -248,7 +253,7 @@ public partial class DualSenseInputReport : ReportParserBase<InputReportData>
     }
 
     /// <inheritdoc />
-    protected override void ParseInternal(ref InputReportData report)
+    public override void Parse(ref InputReportData report)
     {
         SticksAndTriggers sticksAndTriggers = report.SticksAndTriggers;
         LeftThumbX = sticksAndTriggers.LeftStickX;
