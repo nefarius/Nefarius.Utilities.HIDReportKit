@@ -251,6 +251,43 @@ public partial class DualSenseInputReport : ReportParserBase<InputReportData>
             return true;
         }
     }
+    
+    /// <summary>
+    ///     Gets whether any digital button is currently pressed.
+    /// </summary>
+    [IgnoreEquality]
+    public virtual bool AreButtonsPressed
+    {
+        get
+        {
+            if (Square || Cross || Circle || Triangle)
+            {
+                return false;
+            }
+
+            if (DPad != DPadDirection.Default)
+            {
+                return false;
+            }
+
+            if (LeftShoulder || RightShoulder || LeftThumb || RightThumb || Share || Options || PS)
+            {
+                return false;
+            }
+
+            if (LeftTriggerButton || RightTriggerButton)
+            {
+                return false;
+            }
+
+            if (TouchClick)
+            {
+                return false;
+            }
+
+            return true;
+        }
+    }
 
     /// <inheritdoc />
     public override void Parse(ref InputReportData report)
