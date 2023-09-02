@@ -6,12 +6,12 @@
 public interface IHasTriggerAxes
 {
     /// <summary>
-    ///     Gets the left shoulder/bumper.
+    ///     Gets the left trigger value.
     /// </summary>
     int L2 { get; }
     
     /// <summary>
-    ///     Gets the right shoulder/bumper.
+    ///     Gets the right trigger value.
     /// </summary>
     int R2 { get; }
 }

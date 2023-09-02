@@ -6,12 +6,12 @@
 public interface IHasTriggerButtons
 {
     /// <summary>
-    ///     Gets the left shoulder/bumper.
+    ///     Gets the left trigger state.
     /// </summary>
     bool L2 { get; }
     
     /// <summary>
-    ///     Gets the right shoulder/bumper.
+    ///     Gets the right trigger state.
     /// </summary>
     bool R2 { get; }
 }
