@@ -1,13 +1,13 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿// ReSharper disable once RedundantUsingDirective
 
-// ReSharper disable once RedundantUsingDirective
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
 using Generator.Equals;
 
 using Nefarius.Utilities.HID.Devices.DualSense.In;
 using Nefarius.Utilities.HID.Devices.Generic;
-using Nefarius.Utilities.HID.Util;
+using Nefarius.Utilities.HID.Devices.Generic.Components;
 
 namespace Nefarius.Utilities.HID.Devices.DualSense;
 
@@ -37,14 +37,18 @@ public sealed partial class TrackPadTouch
 [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
 [Equatable]
 [SuppressMessage("ReSharper", "MemberCanBeProtected.Global")]
-public partial class DualSenseInputReport : ReportParserBase<InputReportData>
+public partial class DualSenseInputReport : ReportParserBase<InputReportData>,
+    IHasFaceButtons,
+    IHasShoulderButtons
 {
+    private readonly GenericInputReport _generic = new();
+    private bool _l1;
+    private bool _r1;
+
     internal DualSenseInputReport() { }
 
-    private readonly GenericInputReport _generic = new();
-
     /// <summary>
-    ///     Gets the expected <see cref="AxisRangeType"/> of the thumb axes.
+    ///     Gets the expected <see cref="AxisRangeType" /> of the thumb axes.
     /// </summary>
     [IgnoreEquality]
     public AxisRangeType AxisScaleInputType => AxisRangeType.Byte;
@@ -55,7 +59,7 @@ public partial class DualSenseInputReport : ReportParserBase<InputReportData>
     public PowerState? BatteryState { get; protected set; }
 
     /// <summary>
-    ///     Gets the battery state. Only set if <see cref="BatteryState"/> is in the appropriate state.
+    ///     Gets the battery state. Only set if <see cref="BatteryState" /> is in the appropriate state.
     /// </summary>
     public byte? BatteryPercentage { get; protected set; }
 
@@ -237,7 +241,7 @@ public partial class DualSenseInputReport : ReportParserBase<InputReportData>
             return true;
         }
     }
-    
+
     /// <summary>
     ///     Gets whether any digital button is currently pressed.
     /// </summary>
@@ -346,4 +350,30 @@ public partial class DualSenseInputReport : ReportParserBase<InputReportData>
                 break;
         }
     }
+
+    #region IHasFaceButtons
+
+    [IgnoreEquality]
+    bool IHasFaceButtons.Top => _generic.Top;
+
+    [IgnoreEquality]
+    bool IHasFaceButtons.Bottom => _generic.Bottom;
+
+    [IgnoreEquality]
+    bool IHasFaceButtons.Left => _generic.Left;
+
+    [IgnoreEquality]
+    bool IHasFaceButtons.Right => _generic.Right;
+
+    #endregion
+
+    #region IHasShoulderButtons
+
+    [IgnoreEquality]
+    bool IHasShoulderButtons.L1 => _generic.L1;
+
+    [IgnoreEquality]
+    bool IHasShoulderButtons.R1 => _generic.R1;
+
+    #endregion
 }

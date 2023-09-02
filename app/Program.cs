@@ -1,6 +1,7 @@
 ﻿using HidSharp;
 
 using Nefarius.Utilities.HID.Devices.DualSense;
+using Nefarius.Utilities.HID.Devices.Generic.Components;
 using Nefarius.Utilities.HID.Factories;
 
 DeviceList? list = DeviceList.Local;
@@ -45,9 +46,10 @@ while (true)
 #endif
 
     Console.WriteLine($"Battery state: {report.BatteryState}, % : {report.BatteryPercentage}");
-    
+
     if (report.Cross)
     {
+        bool sameAsCross = ((IHasFaceButtons)report).Bottom;
         Console.WriteLine("Cross pressed");
     }
 }
