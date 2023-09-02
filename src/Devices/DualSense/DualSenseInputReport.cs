@@ -36,6 +36,7 @@ public sealed partial class TrackPadTouch
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
 [Equatable]
+[SuppressMessage("ReSharper", "MemberCanBeProtected.Global")]
 public partial class DualSenseInputReport : ReportParserBase<InputReportData>
 {
     internal DualSenseInputReport() { }
@@ -207,22 +208,7 @@ public partial class DualSenseInputReport : ReportParserBase<InputReportData>
     {
         get
         {
-            if (Square || Cross || Circle || Triangle)
-            {
-                return false;
-            }
-
-            if (DPad != DPadDirection.Default)
-            {
-                return false;
-            }
-
-            if (LeftShoulder || RightShoulder || LeftThumb || RightThumb || Share || Options || PS)
-            {
-                return false;
-            }
-
-            if (LeftTriggerButton || RightTriggerButton)
+            if (AreButtonsPressed)
             {
                 return false;
             }
@@ -243,7 +229,7 @@ public partial class DualSenseInputReport : ReportParserBase<InputReportData>
                 return false;
             }
 
-            if (Touch1 || Touch2 || TouchClick)
+            if (Touch1 || Touch2)
             {
                 return false;
             }
