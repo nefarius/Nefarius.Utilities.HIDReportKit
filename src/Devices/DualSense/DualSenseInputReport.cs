@@ -1,5 +1,6 @@
 ﻿// ReSharper disable once RedundantUsingDirective
 
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
@@ -39,11 +40,12 @@ public sealed partial class TrackPadTouch
 [SuppressMessage("ReSharper", "MemberCanBeProtected.Global")]
 public partial class DualSenseInputReport : ReportParserBase<InputReportData>,
     IHasFaceButtons,
-    IHasShoulderButtons
+    IHasShoulderButtons,
+    IHasTriggerButtons,
+    IHasTriggerAxes,
+    IHasBattery
 {
     private readonly GenericInputReport _generic = new();
-    private bool _l1;
-    private bool _r1;
 
     internal DualSenseInputReport() { }
 
@@ -374,6 +376,45 @@ public partial class DualSenseInputReport : ReportParserBase<InputReportData>,
 
     [IgnoreEquality]
     bool IHasShoulderButtons.R1 => _generic.R1;
+
+    #endregion
+
+    #region IHasTriggerButtons
+
+    [IgnoreEquality]
+    bool IHasTriggerButtons.L2 => LeftTriggerButton;
+
+    [IgnoreEquality]
+    bool IHasTriggerButtons.R2 => RightTriggerButton;
+
+    #endregion
+
+    #region IHasTriggerAxes
+
+    [IgnoreEquality]
+    int IHasTriggerAxes.L2 => LeftTrigger;
+
+    [IgnoreEquality]
+    int IHasTriggerAxes.R2 => RightTrigger;
+
+    #endregion
+    
+    #region IHasBattery
+
+    [IgnoreEquality]
+    BatteryState? IHasBattery.BatteryState
+    {
+        get
+        {
+            return BatteryState switch
+            {
+                PowerState.Charging => Devices.BatteryState.Charging,
+                PowerState.Discharging => Devices.BatteryState.Discharging,
+                PowerState.Complete => Devices.BatteryState.Complete,
+                _ => Devices.BatteryState.Unknown
+            };
+        }
+    }
 
     #endregion
 }

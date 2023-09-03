@@ -84,3 +84,30 @@ public enum TriggerRangeType
     /// </summary>
     Byte
 }
+
+/// <summary>
+///     Possible battery states.
+/// </summary>
+[SuppressMessage("ReSharper", "UnusedMember.Global")]
+public enum BatteryState
+{
+    /// <summary>
+    ///     Not known.
+    /// </summary>
+    Unknown,
+
+    /// <summary>
+    ///     Battery is discharging.
+    /// </summary>
+    Discharging,
+
+    /// <summary>
+    ///     Battery is charging.
+    /// </summary>
+    Charging,
+
+    /// <summary>
+    ///     Charging is complete.
+    /// </summary>
+    Complete
+}
