@@ -122,14 +122,26 @@ public partial class DualSenseInputReport
     /// </summary>
     public short RightThumbY { get; set; } = 128;
 
+    /// <summary>
+    ///     Gets the first finger touch information.
+    /// </summary>
     public TrackPadTouch TrackPadTouch1 { get; } = new();
 
+    /// <summary>
+    ///     Gets the second finger touch information.
+    /// </summary>
     public TrackPadTouch TrackPadTouch2 { get; } = new();
 
     public byte TouchPacketCounter { get; protected set; }
 
+    /// <summary>
+    ///     Gets whether only one finger is currently touching.
+    /// </summary>
     public bool TouchOneFingerActive => Touch1 || Touch2;
 
+    /// <summary>
+    ///     Gets whether two fingers are currently touching.
+    /// </summary>
     public bool TouchTwoFingersActive => Touch1 && Touch2;
 
     /// <summary>
