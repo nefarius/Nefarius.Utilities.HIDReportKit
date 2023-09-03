@@ -43,7 +43,8 @@ public partial class DualSenseInputReport : ReportParserBase<InputReportData>,
     IHasShoulderButtons,
     IHasTriggerButtons,
     IHasTriggerAxes,
-    IHasBattery
+    IHasBattery,
+    IHasDirectionalPad
 {
     private readonly GenericInputReport _generic = new();
 

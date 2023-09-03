@@ -111,3 +111,55 @@ public enum BatteryState
     /// </summary>
     Complete
 }
+
+/// <summary>
+///     Possible D-Pad directions in POV (point of view) or hat switch format.
+/// </summary>
+[SuppressMessage("ReSharper", "UnusedMember.Global")]
+public enum DPadPointOfView
+{
+    /// <summary>
+    ///     The resting (default, not engaged) position.
+    /// </summary>
+    Default,
+
+    /// <summary>
+    ///     The up and left direction.
+    /// </summary>
+    NorthWest,
+
+    /// <summary>
+    ///     The left direction.
+    /// </summary>
+    West,
+
+    /// <summary>
+    ///     The down and left direction.
+    /// </summary>
+    SouthWest,
+
+    /// <summary>
+    ///     The down direction.
+    /// </summary>
+    South,
+
+    /// <summary>
+    ///     The down and right direction.
+    /// </summary>
+    SouthEast,
+
+    /// <summary>
+    ///     The right direction.
+    /// </summary>
+    East,
+
+    /// <summary>
+    ///     The up and right direction.
+    /// </summary>
+    NorthEast,
+
+    /// <summary>
+    ///     The up direction.
+    /// </summary>
+    North
+}
