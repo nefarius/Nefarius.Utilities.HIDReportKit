@@ -11,6 +11,7 @@
         <PackageProjectUrl>https://github.com/nefarius/Nefarius.Utilities.HIDReportKit</PackageProjectUrl>
         <Description>Summary. README takes priority over this but nice to have.</Description>
         <RootNamespace>Nefarius.Utilities.HID</RootNamespace>
+        <LangVersion>latest</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
