@@ -31,18 +31,16 @@ DualSenseInputReport report = InputReportFactory.CreateDualSenseInputReport();
 
 #if NETFRAMEWORK
 byte[] buffer = new byte[ds.GetMaxInputReportLength()];
-#else
-Span<byte> buffer = new byte[ds.GetMaxInputReportLength()];
 #endif
 
 while (true)
 {
 #if NETFRAMEWORK
     _ = stream.Read(buffer);
-    report.Parse(buffer.Skip(1).ToArray());
+    report.Parse(buffer);
 #else
-    _ = stream.Read(buffer);
-    report.Parse(buffer[1..]);
+    _ = stream.Read(report.ReportBuffer);
+    report.Parse();
 #endif
 
     Console.WriteLine($"Battery state: {report.BatteryState}, % : {report.BatteryPercentage}");
