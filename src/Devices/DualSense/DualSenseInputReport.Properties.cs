@@ -68,9 +68,9 @@ public partial class DualSenseInputReport
     public bool RightThumb => _generic.R3;
 
     /// <summary>
-    ///     Gets whether Share button is pressed or not.
+    ///     Gets whether Create button is pressed or not.
     /// </summary>
-    public bool Share { get; protected set; }
+    public bool Create { get; protected set; }
 
     /// <summary>
     ///     Gets whether Options button is pressed or not.
@@ -231,7 +231,7 @@ public partial class DualSenseInputReport
                 return false;
             }
 
-            if (LeftShoulder || RightShoulder || LeftThumb || RightThumb || Share || Options || PS)
+            if (LeftShoulder || RightShoulder || LeftThumb || RightThumb || Create || Options || PS)
             {
                 return false;
             }

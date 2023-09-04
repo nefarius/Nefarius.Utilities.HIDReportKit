@@ -46,7 +46,8 @@ public partial class DualSenseInputReport : ReportParserBase<InputReportData>,
     IHasBattery,
     IHasDirectionalPad,
     IHasThumbButtons,
-    IHasThumbAxes
+    IHasThumbAxes,
+    IHasSpecialButtons
 {
     private readonly GenericInputReport _generic = new();
 
@@ -75,7 +76,7 @@ public partial class DualSenseInputReport : ReportParserBase<InputReportData>,
         _generic.L3 = buttons2.HasFlag(DualSenseButtons2.L3);
         _generic.R3 = buttons2.HasFlag(DualSenseButtons2.R3);
         Options = buttons2.HasFlag(DualSenseButtons2.Options);
-        Share = buttons2.HasFlag(DualSenseButtons2.Create);
+        Create = buttons2.HasFlag(DualSenseButtons2.Create);
         RightTriggerButton = buttons2.HasFlag(DualSenseButtons2.R2);
         LeftTriggerButton = buttons2.HasFlag(DualSenseButtons2.L2);
         _generic.R1 = buttons2.HasFlag(DualSenseButtons2.R1);

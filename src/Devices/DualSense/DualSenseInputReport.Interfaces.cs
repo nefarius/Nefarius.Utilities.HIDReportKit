@@ -114,4 +114,17 @@ public partial class DualSenseInputReport
     bool IHasThumbButtons.R3 => _generic.R3;
 
     #endregion
+    
+    #region IHasSpecialButtons
+
+    [IgnoreEquality]
+    bool IHasSpecialButtons.Select => Create;
+
+    [IgnoreEquality]
+    bool IHasSpecialButtons.Home => PS;
+
+    [IgnoreEquality]
+    bool IHasSpecialButtons.Start => Options;
+
+    #endregion
 }
