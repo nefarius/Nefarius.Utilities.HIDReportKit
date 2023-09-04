@@ -154,6 +154,9 @@ public partial class DualSenseInputReport
     [DefaultEquality]
     public TrackPadTouch TrackPadTouch2 { get; } = new();
 
+    /// <summary>
+    ///     Gets the packet counter for touch events.
+    /// </summary>
     [DefaultEquality]
     public byte TouchPacketCounter { get; protected set; }
 
