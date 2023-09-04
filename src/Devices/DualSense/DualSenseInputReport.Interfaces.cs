@@ -1,7 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-using Generator.Equals;
-
 using Nefarius.Utilities.HID.Devices.DualSense.In;
 using Nefarius.Utilities.HID.Devices.Generic.Components;
 
@@ -14,7 +12,6 @@ public partial class DualSenseInputReport
 {
     #region IHasBattery
 
-    [IgnoreEquality]
     BatteryState? IHasBattery.BatteryState =>
         BatteryState switch
         {
@@ -28,62 +25,48 @@ public partial class DualSenseInputReport
 
     #region IHasFaceButtons
 
-    [IgnoreEquality]
     bool IHasFaceButtons.Top => _generic.Top;
 
-    [IgnoreEquality]
     bool IHasFaceButtons.Bottom => _generic.Bottom;
 
-    [IgnoreEquality]
     bool IHasFaceButtons.Left => _generic.Left;
 
-    [IgnoreEquality]
     bool IHasFaceButtons.Right => _generic.Right;
 
     #endregion
 
     #region IHasShoulderButtons
 
-    [IgnoreEquality]
     bool IHasShoulderButtons.L1 => _generic.L1;
 
-    [IgnoreEquality]
     bool IHasShoulderButtons.R1 => _generic.R1;
 
     #endregion
 
     #region IHasTriggerButtons
 
-    [IgnoreEquality]
     bool IHasTriggerButtons.L2 => LeftTriggerButton;
 
-    [IgnoreEquality]
     bool IHasTriggerButtons.R2 => RightTriggerButton;
 
     #endregion
 
     #region IHasTriggerAxes
 
-    [IgnoreEquality]
     int IHasTriggerAxes.L2 => LeftTrigger;
 
-    [IgnoreEquality]
     int IHasTriggerAxes.R2 => RightTrigger;
 
     #endregion
     
     #region IHasDirectionalPad
     
-    [IgnoreEquality]
     bool IHasDirectionalPad.Up => DPad is DPadDirection.North or DPadDirection.NorthEast or DPadDirection.NorthWest;
 
-    [IgnoreEquality]
     bool IHasDirectionalPad.Right => DPad is DPadDirection.East or DPadDirection.NorthEast or DPadDirection.SouthEast;
     
-    [IgnoreEquality]
     bool IHasDirectionalPad.Down => DPad is DPadDirection.South or DPadDirection.SouthEast or DPadDirection.SouthWest;
 
-    [IgnoreEquality]
     bool IHasDirectionalPad.Left => DPad is DPadDirection.West or DPadDirection.NorthWest or DPadDirection.SouthWest;
 
     DPadPointOfView IHasDirectionalPad.AsPOV()
@@ -107,23 +90,18 @@ public partial class DualSenseInputReport
     
     #region IHasThumbButtons
 
-    [IgnoreEquality]
     bool IHasThumbButtons.L3 => _generic.L3;
 
-    [IgnoreEquality]
     bool IHasThumbButtons.R3 => _generic.R3;
 
     #endregion
     
     #region IHasSpecialButtons
 
-    [IgnoreEquality]
     bool IHasSpecialButtons.Select => Create;
 
-    [IgnoreEquality]
     bool IHasSpecialButtons.Home => PS;
 
-    [IgnoreEquality]
     bool IHasSpecialButtons.Start => Options;
 
     #endregion

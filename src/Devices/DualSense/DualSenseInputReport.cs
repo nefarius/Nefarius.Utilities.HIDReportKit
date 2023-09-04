@@ -37,7 +37,7 @@ public sealed partial class TrackPadTouch
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
 [SuppressMessage("ReSharper", "MemberCanBeProtected.Global")]
-[Equatable]
+[Equatable(Explicit = true)]
 public partial class DualSenseInputReport : ReportParserBase<InputReportData>,
     IHasFaceButtons,
     IHasShoulderButtons,
