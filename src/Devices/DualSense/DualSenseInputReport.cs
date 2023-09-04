@@ -61,7 +61,6 @@ public partial class DualSenseInputReport : ReportParserBase<InputReportData>,
     private readonly Memory<byte> _buffer = new byte[ReportSize];
 
     /// <inheritdoc />
-    [IgnoreEquality]
     public override Span<byte> RawReport => _buffer.Span;
 
     /// <inheritdoc />
