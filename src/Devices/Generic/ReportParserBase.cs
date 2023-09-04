@@ -28,16 +28,21 @@ public abstract class ReportParserBase<TRaw> : IParsableFor<TRaw> where TRaw : s
     public abstract void Parse(ref TRaw report);
 
     /// <inheritdoc />
-    public void Parse(byte[] report)
+    public void Parse(byte[] report, bool updateInternalCopy = true)
     {
-        Parse((ReadOnlySpan<byte>)report);
+        Parse((ReadOnlySpan<byte>)report, updateInternalCopy);
     }
 
     /// <inheritdoc />
-    public void Parse(ReadOnlySpan<byte> report)
+    public void Parse(ReadOnlySpan<byte> report, bool updateInternalCopy = true)
     {
+        if (updateInternalCopy)
+        {
+            report.CopyTo(ReportBuffer);
+        }
+
 #if NETCOREAPP3_0_OR_GREATER
-        TRaw data = MemoryMarshal.AsRef<TRaw>(report[1..]);;
+        TRaw data = MemoryMarshal.AsRef<TRaw>(report[1..]);
         Parse(ref data);
 #else
         TRaw data = MemoryMarshal.Read<TRaw>(report[1..]);
