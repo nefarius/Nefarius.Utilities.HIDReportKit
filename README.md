@@ -20,6 +20,8 @@ How many utilities are floating out there either reading or transforming data fr
   We'll do our absolute best to avoid unnecessary copy actions or other expensive operations that could taint your report parsing experience 💪 Spans much?
 - **Plausibility**  
   Juggling opaque byte arrays will sooner or later lead to errors, how about some validation helpers and plausibility checks before you send a report on its way? 👌
+- **Abstraction**  
+  You are not in the mood to figure out what each darn byte in the controller state means? Can't blame you, to some it might look as close to magic as it can get. Was this value big- or little-endian? Don't know, don't care. We provide high-level abstractions you can consume in two lines and be done with it, no in-depth knowledge about bit-shifting or nibbles required 🔥
 
 ## Supported devices
 
