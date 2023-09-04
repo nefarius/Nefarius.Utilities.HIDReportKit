@@ -49,19 +49,18 @@ public partial class DualSenseInputReport : ReportParserBase<InputReportData>,
     IHasThumbAxes,
     IHasSpecialButtons
 {
-    private readonly GenericInputReport _generic = new();
-
-    internal DualSenseInputReport() { }
-
     /// <summary>
     ///     Size of the report in bytes.
     /// </summary>
     public const int ReportSize = 64;
-    
+
     private readonly Memory<byte> _buffer = new byte[ReportSize];
+    private readonly GenericInputReport _generic = new();
+
+    internal DualSenseInputReport() { }
 
     /// <inheritdoc />
-    public override Span<byte> RawReport => _buffer.Span;
+    public override Span<byte> ReportBuffer => _buffer.Span;
 
     /// <inheritdoc />
     public override void Parse(ref InputReportData report)

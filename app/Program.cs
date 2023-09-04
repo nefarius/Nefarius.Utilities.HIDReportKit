@@ -39,7 +39,7 @@ while (true)
 {
 #if NETFRAMEWORK
     _ = stream.Read(buffer);
-    report.Parse(buffer.Skip(1));
+    report.Parse(buffer.Skip(1).ToArray());
 #else
     _ = stream.Read(buffer);
     report.Parse(buffer[1..]);

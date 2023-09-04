@@ -16,8 +16,14 @@ public abstract class ReportParserBase<TRaw> : IParsableFor<TRaw> where TRaw : s
     internal ReportParserBase() { }
 
     /// <inheritdoc />
-    public abstract Span<byte> RawReport { get; }
-    
+    public abstract Span<byte> ReportBuffer { get; }
+
+    /// <inheritdoc />
+    public void Parse()
+    {
+        Parse(ReportBuffer);
+    }
+
     /// <inheritdoc />
     public abstract void Parse(ref TRaw report);
 
@@ -25,12 +31,6 @@ public abstract class ReportParserBase<TRaw> : IParsableFor<TRaw> where TRaw : s
     public void Parse(byte[] report)
     {
         Parse((ReadOnlySpan<byte>)report);
-    }
-
-    /// <inheritdoc />
-    public void Parse(IEnumerable<byte> report)
-    {
-        Parse((ReadOnlySpan<byte>)report.ToArray());
     }
 
     /// <inheritdoc />

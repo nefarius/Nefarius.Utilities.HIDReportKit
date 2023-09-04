@@ -12,7 +12,12 @@ public interface IParsableFor<TRaw> where TRaw : IRawInputReportStruct
     /// <summary>
     ///     The underlying report buffer.
     /// </summary>
-    Span<byte> RawReport { get; }
+    Span<byte> ReportBuffer { get; }
+
+    /// <summary>
+    ///     Parses the input report from <see cref="ReportBuffer"/>.
+    /// </summary>
+    void Parse();
     
     /// <summary>
     ///     Parses a provided input report into this instance.
@@ -27,13 +32,6 @@ public interface IParsableFor<TRaw> where TRaw : IRawInputReportStruct
     /// <param name="report">The raw report to parse.</param>
     /// <remarks>Provide the start of the report WITHOUT the report ID.</remarks>
     void Parse(byte[] report);
-    
-    /// <summary>
-    ///     Parses a provided input report into this instance.
-    /// </summary>
-    /// <param name="report">The raw report to parse.</param>
-    /// <remarks>Provide the start of the report WITHOUT the report ID.</remarks>
-    void Parse(IEnumerable<byte> report);
     
     /// <summary>
     ///     Parses a provided input report into this instance.
