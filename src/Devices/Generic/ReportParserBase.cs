@@ -37,7 +37,7 @@ public abstract class ReportParserBase<TRaw> : IParsableFor<TRaw> where TRaw : s
     public void Parse(ReadOnlySpan<byte> report)
     {
 #if NETCOREAPP3_0_OR_GREATER
-        TRaw data = report.AsStruct<TRaw>();
+        TRaw data = MemoryMarshal.AsRef<TRaw>(report);;
         Parse(ref data);
 #else
         TRaw data = MemoryMarshal.Read<TRaw>(report);
