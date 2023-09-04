@@ -27,6 +27,7 @@ How many utilities are floating out there either reading or transforming data fr
 
 - Sony™ DualShock™ 4 (PS4 Controller)
 - Sony™ DualSense™ (PS5 Controller)
+- ...more to come as the library grows! 
 
 ## NuGet
 
