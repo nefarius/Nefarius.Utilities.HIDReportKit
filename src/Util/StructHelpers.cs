@@ -8,7 +8,7 @@ namespace Nefarius.Utilities.HID.Util;
 /// </summary>
 [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
 [SuppressMessage("ReSharper", "UnusedMember.Global")]
-public static class StructHelpers
+internal static class StructHelpers
 {
     /// <summary>
     ///     Writes a given type T to a provided byte array.

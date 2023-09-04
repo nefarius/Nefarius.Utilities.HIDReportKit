@@ -16,6 +16,9 @@ public abstract class ReportParserBase<TRaw> : IParsableFor<TRaw> where TRaw : s
     internal ReportParserBase() { }
 
     /// <inheritdoc />
+    public abstract Span<byte> RawReport { get; }
+    
+    /// <inheritdoc />
     public abstract void Parse(ref TRaw report);
 
     /// <inheritdoc />

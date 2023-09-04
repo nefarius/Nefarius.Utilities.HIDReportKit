@@ -10,6 +10,11 @@ namespace Nefarius.Utilities.HID.Devices.Generic;
 public interface IParsableFor<TRaw> where TRaw : IRawInputReportStruct
 {
     /// <summary>
+    ///     The underlying report buffer.
+    /// </summary>
+    Span<byte> RawReport { get; }
+    
+    /// <summary>
     ///     Parses a provided input report into this instance.
     /// </summary>
     /// <param name="report">The raw report to parse.</param>
