@@ -1,6 +1,4 @@
-<img src="assets/logo-128x128.png" align="right" />
-
-# Nefarius.Utilities.HIDReportKit
+# <img src="assets/logo-128x128.png" align="left" />Nefarius.Utilities.HIDReportKit
 
 [![.NET](https://github.com/nefarius/Nefarius.Utilities.HIDReportKit/actions/workflows/build.yml/badge.svg)](https://github.com/nefarius/Nefarius.Utilities.HIDReportKit/actions/workflows/build.yml) ![Requirements](https://img.shields.io/badge/Requires-.NET%20Standard%202.0-blue.svg) ![Requirements](https://img.shields.io/badge/Requires-.NET%206-blue.svg) [![Nuget](https://img.shields.io/nuget/v/Nefarius.Utilities.HIDReportKit)](https://www.nuget.org/packages/Nefarius.Utilities.HIDReportKit/) [![Nuget](https://img.shields.io/nuget/dt/Nefarius.Utilities.HIDReportKit)](https://www.nuget.org/packages/Nefarius.Utilities.HIDReportKit/)
 
