@@ -14,19 +14,23 @@
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <MinVerTagPrefix>v</MinVerTagPrefix>
+    </PropertyGroup>
+
     <ItemGroup>
-        <PackageReference Include="Generator.Equals" Version="3.1.1" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-        <PackageReference Include="GitVersion.MsBuild" Version="5.12.0">
+        <PackageReference Include="Generator.Equals" Version="3.1.1" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
+        <PackageReference Include="MinVer" Version="5.0.0">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="PolySharp" Version="1.14.1">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-        <PackageReference Include="System.Memory" Version="4.5.5" />
+        <PackageReference Include="System.Memory" Version="4.5.5"/>
     </ItemGroup>
 </Project>
