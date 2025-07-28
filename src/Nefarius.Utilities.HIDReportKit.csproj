@@ -19,7 +19,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Generator.Equals" Version="3.2.0" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
+        <PackageReference Include="Generator.Equals" Version="3.2.1" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
         <PackageReference Include="MinVer" Version="6.0.0">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -31,6 +31,6 @@
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-        <PackageReference Include="System.Memory" Version="4.6.3"/>
+        <PackageReference Include="System.Memory" Version="4.6.3" />
     </ItemGroup>
 </Project>
