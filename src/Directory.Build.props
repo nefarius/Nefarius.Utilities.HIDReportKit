@@ -7,7 +7,7 @@
 
         <!-- Package Icon -->
         <PackageIcon>logo-128x128.png</PackageIcon>
-        <PackageIconUrl/>
+        <PackageIconUrl />
         <PackageReadmeFile>README.md</PackageReadmeFile>
 
         <!-- Common solution settings -->
@@ -31,6 +31,6 @@
             <Pack>True</Pack>
             <PackagePath></PackagePath>
         </None>
-        <None Include="$(SolutionDir)README.md" Pack="true" PackagePath="\"/>
+        <None Include="$(SolutionDir)README.md" Pack="true" PackagePath="\" />
     </ItemGroup>
 </Project>
